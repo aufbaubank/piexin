@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  ingress:
+    image: nginx:1.17.9-alpine
+    ports:
+      - 80:80
+      - 443:443
+
+  phpipam-web:
+    image: phpipam/phpipam-www:latest
+    environment:
+      TZ: Europe/Berlin
+      IPAM_DATABASE_HOST: phpipam-mariadb
+      IPAM_DATABASE_USER: phpipam
+      IPAM_DATABASE_PASS: phpipam
+      IPAM_DATABASE_WEBHOST: '%'
+    restart: unless-stopped
+    depends_on:
+      - phpipam-mariadb
+
+  phpipam-cron:
+    image: phpipam/phpipam-cron:latest
+    environment:
+      - TZ=Europe/London
+      - IPAM_DATABASE_HOST=phpipam-mariadb
+      - IPAM_DATABASE_PASS=my_secret_phpipam_pass
+      - SCAN_INTERVAL=1h
+    restart: unless-stopped
+    depends_on:
+      - phpipam-mariadb
+
+  phpipam-mariadb:
+    image: mariadb:latest
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_DATABASE: phpipam
+      MYSQL_USER: phpipam
+      MYSQL_PASSWORD: phpipam
+    restart: unless-stopped

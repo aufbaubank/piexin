@@ -1,0 +1,27 @@
+dist: bionic
+language: python
+
+services:
+  - docker
+
+matrix:
+  include:
+    - python: 3.8
+      env: TOXENV=py38
+    - python: 3.6
+      env: TOXENV=py36
+
+install:
+  - pip install tox ansible docker docker-compose
+  - ansible-playbook test/integration/converge.yml
+
+script:
+  - tox
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+notifications:
+  email:
+    - henne64@googlemail.com
+    - daniel.henneberg@aufbaubank.de

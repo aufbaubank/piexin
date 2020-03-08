@@ -1,0 +1,93 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: create containers
+      docker_compose:
+        project_src: "{{ playbook_dir }}"
+      register: result_create_containers
+    - name: patch phpipam image, as there is no ssl functionality
+      command:
+        argv:
+          - docker
+          - exec
+          - integration_phpipam-web_1
+          - sed
+          - -i
+          - -e
+          - '/isHttps/!b'
+          - -e
+          - ':a'
+          - -e
+          - "s/return\ false/return\ true/;t trail"
+          - -e
+          - 'n;ba'
+          - -e
+          - ':trail'
+          - -e
+          - 'n;btrail'
+          - /phpipam/functions/classes/class.Common.php
+      when: result_create_containers.changed
+    - name: generate ingress key
+      openssl_privatekey:
+        path: "{{ playbook_dir }}/nginx.key"
+        size: 4096
+    - name: generate ingress csr
+      openssl_csr:
+        path: "{{ playbook_dir }}/nginx.csr"
+        privatekey_path: "{{ playbook_dir }}/nginx.key"
+        common_name: localhost
+    - name: generate ingress certificate
+      openssl_certificate:
+        path: "{{ playbook_dir }}/nginx.crt"
+        privatekey_path: "{{ playbook_dir }}/nginx.key"
+        csr_path: "{{ playbook_dir }}/nginx.csr"
+        provider: selfsigned
+    - name: copy keys to nginx image
+      command:
+        argv:
+          - docker
+          - cp
+          - "{{ playbook_dir }}/{{ item }}"
+          - "integration_ingress_1:/etc/ssl/{{ item }}"
+      loop:
+        - nginx.crt
+        - nginx.key
+    - name: copy nginx config to container
+      command:
+        argv:
+          - docker
+          - cp
+          - "{{ playbook_dir }}/nginx.conf"
+          - "integration_ingress_1:/etc/nginx/conf.d/default.conf"
+    - name: reload nignx
+      command:
+        argv:
+          - docker
+          - exec
+          - integration_ingress_1
+          - nginx
+          - -s
+          - reload
+    - name: copy test data to database container
+      command:
+        argv:
+          - docker
+          - cp
+          - "{{ playbook_dir }}/dump.sql"
+          - integration_phpipam-mariadb_1:/dump.xml
+    - name: wait for database to be operational and import test data
+      command:
+        argv:
+          - docker
+          - exec
+          - integration_phpipam-mariadb_1
+          - /usr/bin/mysql
+          - --user=phpipam
+          - --password=phpipam
+          - --execute=source /dump.xml
+          - phpipam
+      register: result_mysql_import
+      until: not result_mysql_import.failed
+      retries: 60
+      delay: 1
