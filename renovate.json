@@ -6,5 +6,6 @@
   "pipenv": {
     "enabled": true
   },
+  "automerge": true,
   "ignorePaths": []
 }
