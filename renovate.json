@@ -2,7 +2,7 @@
   "extends": [
     "config:base"
   ],
-  "enabledManagers": ['docker-compose', 'pipenv'],
+  "enabledManagers": ["docker-compose", "pipenv"],
   "pipenv": {
     "enabled": true
   }
