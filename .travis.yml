@@ -21,6 +21,16 @@ script:
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
+deploy:
+  provider: pypi
+  user: "__token__"
+  password:
+    secure: "EK1K/K6fze1SYii7rTYCDz0l0dxa3bDaaWFQk77HHcKcPSnqD9Cl0oBkIqYMIXYMDKgzzgkmeBEN/zi9FTIqwqSR+u3dxWoLk2D1apkkyZvWOnbpigxIHfKVo9r7KNw4xnd/2YMANroRh6ky7KHSiywEBgwjSlJIT7CRpG4wRSfWVFZC8VySQbQaUPg/ZrB1dS/FIRdsAVZBwqI7MU4gCcmsSF7HvNwEgJNNI55SNDighPKw2axSlbF6FcTKLR9bdjQqFAaIIUTvrsWRMesRzaY2+FxG/W9pDjbDpOds74hVN1Qflwil79zyNMneLdyLABpcv4s3XnL3OSm5C+zEjlGvJ9lymxqrLVPaQ/z/0MWt//pLaVOgggYjT040jTTjl+zRejVKWyl1dYR7qwpZ76dItuMPV6DYaAZxhYIWSMhIKvlzLbIOA8acqAtEYpQ6VbvFvZF5qjhMhtT6MSLKzhQw55JbD0MVA0p83WzqN1uW2jb+0H57D3f0mRD5TOAln/KsENl4WvQc70pnIeiyDrvlG2GankbYRK1khaXanfK6gUZ6Z77Jr8kMJ6mT8eJI1d2T07W+Q3eTfjOMgJzQw5J6yBf6/CVjWTigigoxQokidRJZzPdIDdogRVv0sTRKO2z315GcOqAUg8gwcM2Vrp1ASZbcOP4vvfZ1NXPuZQQ="
+  distributions: "sdist bdist_wheel"
+  skip_existing: true
+  on:
+    tags: true
+
 notifications:
   email:
     - henne64@googlemail.com

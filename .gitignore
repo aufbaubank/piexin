@@ -14,6 +14,8 @@
 coverage.xml
 .tox/
 *.egg-info
+dist/
+build/
 
 nginx.crt
 nginx.key
