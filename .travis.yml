@@ -13,7 +13,7 @@ matrix:
 
 install:
   - pip install tox ansible docker docker-compose
-  - ansible-playbook test/integration/converge.yml
+  - ansible-playbook tests/integration/converge.yml
 
 script:
   - tox
