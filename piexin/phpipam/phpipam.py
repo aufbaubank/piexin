@@ -1,18 +1,27 @@
 import requests
+import os
+import re
 from .exeption import PhpipamException
 from .section import Section
 from .subnet import Subnet
 from .address import Address
 from .vlan import Vlan
 
+
 class Phpipam:
+
+    key_env_token = 'PHPIPAM_TOKEN'
 
     def __init__(self, args):
 
         self.url = '{0}/api/{1}'.format(args.url, args.app)
-        self.headers = {
-            "token": args.token
-        }
+
+        self.headers = {}
+        if args.token == '' and Phpipam.key_env_token in os.environ:
+            self.headers['token'] = os.environ[Phpipam.key_env_token]
+        else:
+            self.headers['token'] = args.token
+
         self.verify = True
         if args.cert != '':
             self.verify = args.cert
@@ -54,6 +63,9 @@ class Phpipam:
                     '/subnets/{0}/addresses/'.format(subnet.id))
                 for address_json in address_json:
                     address = Address(address_json)
+
+                    if not address.validate_fqdn():
+                        continue
 
                     subnet.addresses.append(address)
                     self.addresses.append(address)

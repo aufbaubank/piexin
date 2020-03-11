@@ -3,6 +3,8 @@ import re
 
 class Address:
 
+    hostname_regex = re.compile('^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$', re.IGNORECASE)
+
     def __init__(self, host_json):
 
         self.id = host_json["id"]
@@ -31,4 +33,16 @@ class Address:
                 ret_ary.append(name.replace(' ', ''))
 
         return ret_ary
+
+    def validate_fqdn(self):
+
+        if len(self.hostname) > 253:
+            return False
+
+        hostname_parts = self.hostname.split('.')
+
+        if len(hostname_parts) < 3:
+            return False
+
+        return all(Address.hostname_regex.match(part) for part in hostname_parts)
 
