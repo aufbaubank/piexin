@@ -1,5 +1,6 @@
 import os
 
+
 class Inventorywriter:
 
     def __init__(self, src):
@@ -11,7 +12,7 @@ class Inventorywriter:
         new_content = self.get_content_from_source()
 
         if filename is None or not isinstance(filename, str) or filename == '':
-            print(new_content)
+            print(new_content, end='')
             return True
 
         if os.path.isfile(filename):
