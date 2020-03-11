@@ -26,16 +26,6 @@ def create_argparser(args):
         help='phpipam api appname'
     )
     argp.add_argument(
-        '-l', '--login',
-        metavar='login', default='', type=str,
-        help='phpipam api username'
-    )
-    argp.add_argument(
-        '-p', '--password',
-        metavar='password', default='', type=str,
-        help='phpipam api password'
-    )
-    argp.add_argument(
         '-c', '--cert',
         metavar='certificate', default='', type=str,
         help='ssl cert from server if server is not trusted'

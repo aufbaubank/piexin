@@ -12,7 +12,7 @@ matrix:
       env: TOXENV=py36
 
 install:
-  - pip install tox ansible docker docker-compose
+  - pip install -r requirements.txt
   - ansible-playbook tests/integration/converge.yml
 
 script:

@@ -1,0 +1,8 @@
+ansible==2.9.6
+docker-compose==1.25.4
+pytest-console-scripts==0.2.0
+pytest-cov==2.8.1
+pytest==5.3.5
+requests-mock==1.7.0
+requests==2.23.0
+tox==3.14.5
