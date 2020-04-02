@@ -6,7 +6,7 @@ class TestAddress:
     def __json(self):
 
         return {
-            "id": "bla",
+            "id": 0,
             "ip": "bla",
             "hostname": "bla",
             "subnetId": "bla"
