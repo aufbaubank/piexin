@@ -13,9 +13,12 @@ class Address:
         self.subnet_id = host_json["subnetId"]
 
         self.ansible_groups = []
-        if 'custom_ansible_groups' in host_json:
-            self.ansible_groups = \
-                self.parse_ansible_groups(host_json["custom_ansible_groups"])
+
+        # check for multiple field spelling
+        for key in ['custom_ansible_groups', 'custom_ansible-groups']:
+            if key in host_json:
+                self.ansible_groups = \
+                    self.parse_ansible_groups(host_json[key])
 
     def parse_ansible_groups(self, string):
 
@@ -36,7 +39,10 @@ class Address:
 
     def validate_fqdn(self):
 
-        if len(self.hostname) > 253:
+        if not self.hostname or \
+                not isinstance(self.hostname, str) or \
+                len(self.hostname) == 0 or \
+                len(self.hostname) > 253:
             return False
 
         hostname_parts = self.hostname.split('.')
@@ -45,4 +51,3 @@ class Address:
             return False
 
         return all(Address.hostname_regex.match(part) for part in hostname_parts)
-

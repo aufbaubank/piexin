@@ -45,3 +45,21 @@ class TestValidateFqdn:
             addr = Address(json)
 
             assert name and not addr.validate_fqdn()
+
+    def test_missing_hostname(self):
+
+        json = TestValidateFqdn.host_json_skeleton
+        json['hostname'] = None
+
+        address = Address(json)
+
+        assert not address.validate_fqdn()
+
+    def test_empty_hostname(self):
+
+        json = TestValidateFqdn.host_json_skeleton
+        json['hostname'] = ''
+
+        address = Address(json)
+
+        assert not address.validate_fqdn()
