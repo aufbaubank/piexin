@@ -17,6 +17,8 @@ install:
 
 script:
   - tox
+  - python setup.py sdist
+  - twine check dist/*
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
