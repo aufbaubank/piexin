@@ -5,6 +5,7 @@ from piexin.phpipam.exeption import PhpipamException
 from piexin.inventorywriter.inventorywriter import Inventorywriter
 import piexin
 
+
 def create_argparser(args):
     """
     parse args
@@ -18,7 +19,7 @@ def create_argparser(args):
     argp.add_argument(
         '-t', '--token',
         metavar='token', default='', type=str,
-        help='v4 api token'
+        help='api token, can also be stored in environment variable PHPIPAM_TOKEN'
     )
     argp.add_argument(
         '-a', '--app',

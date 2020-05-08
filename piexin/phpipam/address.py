@@ -9,9 +9,8 @@ class Address:
 
         self.id = host_json["id"]
         self.ip = host_json["ip"]
-        self.hostname = host_json["hostname"]
         self.subnet_id = host_json["subnetId"]
-
+        self.hostname = host_json["hostname"]
         self.ansible_groups = []
 
         # check for multiple field spelling
@@ -19,6 +18,10 @@ class Address:
             if key in host_json:
                 self.ansible_groups = \
                     self.parse_ansible_groups(host_json[key])
+
+        # lower hostname
+        if isinstance(self.hostname, str):
+            self.hostname = self.hostname.lower()
 
     def parse_ansible_groups(self, string):
 
