@@ -11,6 +11,7 @@ class TestCommand:
                              'host2.localdomain.local ansible_host=10.0.0.2\n' \
                              'host3.localdomain.local ansible_host=10.0.1.1\n' \
                              'host4.localdomain.local ansible_host=10.0.1.2\n' \
+                             'windows.localdomain.local ansible_host=10.0.1.3\n' \
                              'host5.localdomain.local ansible_host=172.16.0.1\n' \
                              'host6.localdomain.local ansible_host=172.16.0.2\n' \
                              'host7.localdomain.local ansible_host=172.16.1.1\n' \
@@ -44,6 +45,7 @@ class TestCommand:
                              '[piexin_subnet_10_0_1_0]\n' \
                              'host3.localdomain.local\n' \
                              'host4.localdomain.local\n' \
+                             'windows.localdomain.local\n' \
                              '\n' \
                              '[piexin_subnet_10_0_1_0:vars]\n' \
                              'piexin_subnet = 10.0.1.0\n' \
