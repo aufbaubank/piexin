@@ -2,13 +2,13 @@ version: '3'
 
 services:
   ingress:
-    image: nginx:1.17.9-alpine@sha256:ef2b6cd6fdfc6d0502b77710b27f7928a5e29ab5cfae398824e5dcfbbb7a75e2
+    image: nginx:1.18.0-alpine@sha256:676b8117782d9e8c20af8e1b19356f64acc76c981f3a65c66e33a9874877892a
     ports:
       - 80:80
       - 443:443
 
   phpipam-web:
-    image: phpipam/phpipam-www:1.4x@sha256:ba6f35040719f73d0dc3be693f374998abf5b2d70ce067f7351a13587d237ce8
+    image: phpipam/phpipam-www:1.4x@sha256:764a7c29422bcbf91db4b24f49bd90cf6ab84d10bfd4115630bbcb6800141a60
     environment:
       TZ: Europe/Berlin
       IPAM_DATABASE_HOST: phpipam-mariadb
@@ -20,7 +20,7 @@ services:
       - phpipam-mariadb
 
   phpipam-cron:
-    image: phpipam/phpipam-cron:1.4x@sha256:295b9666e026ddd11fb8151f4f3e039d5b8f1918fcd1512cffb5b41a9e70e88b
+    image: phpipam/phpipam-cron:1.4x@sha256:b34f1592e5440791a6a048fd4db30211530e180add0eac8bcece688f5a940225
     environment:
       - TZ=Europe/London
       - IPAM_DATABASE_HOST=phpipam-mariadb
@@ -31,7 +31,7 @@ services:
       - phpipam-mariadb
 
   phpipam-mariadb:
-    image: mariadb:10.5@sha256:431dc6648289340ee1f51b1e943474f0215c592f33355ec36b03b405b382df5e
+    image: mariadb:10.5@sha256:5d8f0d6ef1de0d626fc26355f2ed8965f91f7eb91273087d89e3321e27f16dd7
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: "yes"
       MYSQL_DATABASE: phpipam
