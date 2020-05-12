@@ -9,7 +9,7 @@ pytest-cov = "==2.8.1"
 requests-mock = "==1.8.0"
 pytest-console-scripts = "==0.2.0"
 tox = "==3.15.0"
-ansible = "==2.9.8"
+ansible = "==2.9.9"
 docker-compose = "==1.25.5"
 twine = "==3.1.1"
 
