@@ -10,6 +10,8 @@ class Subnet:
 
         self.addresses = []
 
+        self.gateway_address = None
+
     def set_vlan(self, vlan):
 
         self.vlan = vlan

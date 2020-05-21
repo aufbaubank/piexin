@@ -9,9 +9,11 @@ class TestCommand:
     inventory_file_content = '[piexin_all]\n' \
                              'host1.localdomain.local ansible_host=10.0.0.1\n' \
                              'host2.localdomain.local ansible_host=10.0.0.2\n' \
+                             'gateway.localdomain.local ansible_host=10.0.0.6\n' \
                              'host3.localdomain.local ansible_host=10.0.1.1\n' \
                              'host4.localdomain.local ansible_host=10.0.1.2\n' \
                              'windows.localdomain.local ansible_host=10.0.1.3\n' \
+                             'lonely.localdomain.local ansible_host=10.0.2.1\n' \
                              'host5.localdomain.local ansible_host=172.16.0.1\n' \
                              'host6.localdomain.local ansible_host=172.16.0.2\n' \
                              'host7.localdomain.local ansible_host=172.16.1.1\n' \
@@ -32,13 +34,18 @@ class TestCommand:
                              'host3.localdomain.local\n' \
                              'host4.localdomain.local\n' \
                              '\n' \
+                             '[lonely_group]\n' \
+                             'lonely.localdomain.local\n' \
+                             '\n' \
                              '[piexin_subnet_10_0_0_0]\n' \
                              'host1.localdomain.local\n' \
                              'host2.localdomain.local\n' \
+                             'gateway.localdomain.local\n' \
                              '\n' \
                              '[piexin_subnet_10_0_0_0:vars]\n' \
                              'piexin_subnet = 10.0.0.0\n' \
                              'piexin_subnet_mask = 24\n' \
+                             'piexin_gateway_address = 10.0.0.6\n' \
                              'piexin_vlan_id = 3\n' \
                              'piexin_vlan_name = 10_FIRST\n' \
                              '\n' \
@@ -50,8 +57,16 @@ class TestCommand:
                              '[piexin_subnet_10_0_1_0:vars]\n' \
                              'piexin_subnet = 10.0.1.0\n' \
                              'piexin_subnet_mask = 24\n' \
+                             'piexin_gateway_address = 10.0.1.4\n' \
                              'piexin_vlan_id = 4\n' \
                              'piexin_vlan_name = 11_SCND\n' \
+                             '\n' \
+                             '[piexin_subnet_10_0_2_0]\n' \
+                             'lonely.localdomain.local\n' \
+                             '\n' \
+                             '[piexin_subnet_10_0_2_0:vars]\n' \
+                             'piexin_subnet = 10.0.2.0\n' \
+                             'piexin_subnet_mask = 24\n' \
                              '\n' \
                              '[piexin_subnet_172_16_0_0]\n' \
                              'host5.localdomain.local\n' \

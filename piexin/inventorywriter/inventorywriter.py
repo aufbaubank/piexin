@@ -96,11 +96,18 @@ class Inventorywriter:
                 'piexin_subnet = {0}\n'.format(subnet.subnet),
                 'piexin_subnet_mask = {0}\n'.format(subnet.mask),
             ]
+
+            if subnet.gateway_address:
+                group_vars.extend([
+                    'piexin_gateway_address = {0}\n'.format(subnet.gateway_address)
+                ])
+
             if subnet.vlan_id != '0':
                 group_vars.extend([
                     'piexin_vlan_id = {0}\n'.format(subnet.vlan_id),
                     'piexin_vlan_name = {0}\n'.format(subnet.vlan.name)
                 ])
+
             lines.extend(group_vars)
             lines.append('\n')
 
