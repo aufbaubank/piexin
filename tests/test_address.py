@@ -9,7 +9,8 @@ class TestAddress:
             "id": 0,
             "ip": "bla",
             "hostname": "bla",
-            "subnetId": "bla"
+            "subnetId": "bla",
+            "is_gateway": '0'
         }
 
     def test_parse_ansible_groups(self):

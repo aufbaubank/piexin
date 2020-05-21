@@ -64,6 +64,10 @@ class Phpipam:
                 for address_json in address_json:
                     address = Address(address_json)
 
+                    if 'is_gateway' in address_json \
+                            and address_json['is_gateway'] == '1':
+                        subnet.gateway_address = address.ip
+
                     if not address.validate_fqdn():
                         continue
 

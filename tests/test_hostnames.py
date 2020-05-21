@@ -21,7 +21,8 @@ class TestValidateFqdn:
     host_json_skeleton = {
         "id": 1,
         "ip": 1,
-        "subnetId": 1
+        "subnetId": 1,
+        "is_gateway": '0'
     }
 
     def test_good_names(self):
