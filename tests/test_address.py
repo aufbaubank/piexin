@@ -43,7 +43,7 @@ class TestAddress:
         group_ary = address.parse_ansible_groups(string)
 
         for ix in test_ary:
-            assert ix in group_ary
+            assert ix.lower() in group_ary
 
         assert len(group_ary) == len(test_ary)
 
