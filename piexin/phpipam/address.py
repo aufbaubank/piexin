@@ -35,8 +35,14 @@ class Address:
         pattern = re.compile(re_string)
 
         for name in names_ary:
-            if pattern.match(name):
-                ret_ary.append(name.replace(' ', ''))
+            if not pattern.match(name):
+                continue
+
+            sanitized = name\
+                .replace(' ', '')\
+                .lower()
+
+            ret_ary.append(sanitized)
 
         return ret_ary
 
