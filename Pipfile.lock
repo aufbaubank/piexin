@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "f53e942d1e5c14f53dfc9c1cd39941b3a09841c37d9053a10e93ac2d81172876"
+            "sha256": "9cca250c5a7d2c952b29f8bbd9f3b1f5c0b5dea67c4897ecef15b59c59556d9c"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -232,6 +232,13 @@
             ],
             "version": "==0.3.0"
         },
+        "distro": {
+            "hashes": [
+                "sha256:0e58756ae38fbd8fc3020d54badb8eae17c5b9dcbed388b17bb55b8a5928df92",
+                "sha256:df74eed763e18d10d0da624258524ae80486432cd17392d9c3d96f5e83cd2799"
+            ],
+            "version": "==1.5.0"
+        },
         "docker": {
             "extras": [
                 "ssh"
@@ -245,11 +252,11 @@
         },
         "docker-compose": {
             "hashes": [
-                "sha256:7a2eb6d8173fdf408e505e6f7d497ac0b777388719542be9e49a0efd477a50c6",
-                "sha256:9d33520ae976f524968a64226516ec631dce09fba0974ce5366ad403e203eb5d"
+                "sha256:7e836102d139aca667d6af53f0f4d942c9459ec24d6dd4f0203d74359b0fd311",
+                "sha256:82ddf7b3908635426e7b0f552ad9926ad6448be8c0fdb768505819763a5eb2e6"
             ],
             "index": "pypi",
-            "version": "==1.25.5"
+            "version": "==1.26.0"
         },
         "dockerpty": {
             "hashes": [
@@ -509,6 +516,13 @@
             "markers": "python_version >= '2.7'",
             "version": "==5.2"
         },
+        "python-dotenv": {
+            "hashes": [
+                "sha256:25c0ff1a3e12f4bde8d592cc254ab075cfe734fc5dd989036716fd17ee7e5ec7",
+                "sha256:3b9909bc96b0edc6b01586e1eed05e71174ef4e04c71da5786370cebea53ad74"
+            ],
+            "version": "==0.13.0"
+        },
         "pyyaml": {
             "hashes": [
                 "sha256:06a0d7ba600ce0b2d2fe2e78453a470b5a6e000a985dd4a4e54e436cc36b0e97",
@@ -595,11 +609,11 @@
         },
         "tqdm": {
             "hashes": [
-                "sha256:4733c4a10d0f2a4d098d801464bdaf5240c7dadd2a7fde4ee93b0a0efd9fb25e",
-                "sha256:acdafb20f51637ca3954150d0405ff1a7edde0ff19e38fb99a80a66210d2a28f"
+                "sha256:07c06493f1403c1380b630ae3dcbe5ae62abcf369a93bbc052502279f189ab8c",
+                "sha256:cd140979c2bebd2311dfb14781d8f19bd5a9debb92dcab9f6ef899c987fcf71f"
             ],
             "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2, 3.3'",
-            "version": "==4.46.0"
+            "version": "==4.46.1"
         },
         "twine": {
             "hashes": [
