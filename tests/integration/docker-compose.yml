@@ -31,7 +31,7 @@ services:
       - phpipam-mariadb
 
   phpipam-mariadb:
-    image: mariadb:10.5@sha256:e6ea77e89f1063e28e4973dce65216a776af6aef5bbefb456495502cbbac402c
+    image: mariadb:10.5@sha256:efda319519f6f15ab1d620877b14ef775d5283f8a0cb751c0048be979ce002d1
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: "yes"
       MYSQL_DATABASE: phpipam
