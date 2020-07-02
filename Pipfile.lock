@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "05fa2c4e4d16ed0b8020f2563f7ad5985823f9daf33c9a7334f0bb454635ef4f"
+            "sha256": "04cd23c42121367054f5eaf9996369be8c2ad88b5648da77cf50ead2ac9914d5"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -261,11 +261,11 @@
         },
         "docker-compose": {
             "hashes": [
-                "sha256:85460909def3f528911ad371eb4e865bb9f7f8d55df1fe66a8f10747ad62ed65",
-                "sha256:8b1daea0980a506c4f881de286a451c9beab6248021ff8e813eda9155c475d1c"
+                "sha256:576b0f81d1a1325941b3ce3436efd51f28b9ecd85b10dd6daa7d51793e187b30",
+                "sha256:f60015b69d2cce60ef83cd935556d8639904038c08f4cfd29e5b9e85bf84c6d0"
             ],
             "index": "pypi",
-            "version": "==1.26.1"
+            "version": "==1.26.2"
         },
         "dockerpty": {
             "hashes": [
@@ -312,11 +312,11 @@
         },
         "importlib-resources": {
             "hashes": [
-                "sha256:83985739b3a6679702f9ab33f0ad016ad564664d0568a31ac14d7c64789453e6",
-                "sha256:f5edfcece1cc9435d0979c19e08739521f4cf1aa1adaf6e571f732df6f568962"
+                "sha256:19f745a6eca188b490b1428c8d1d4a0d2368759f32370ea8fb89cad2ab1106c3",
+                "sha256:d028f66b66c0d5732dae86ba4276999855e162a749c92620a38c1d779ed138a7"
             ],
             "markers": "python_version < '3.7'",
-            "version": "==2.0.1"
+            "version": "==3.0.0"
         },
         "jeepney": {
             "hashes": [
