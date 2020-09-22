@@ -20,7 +20,7 @@ services:
       - phpipam-mariadb
 
   phpipam-cron:
-    image: phpipam/phpipam-cron:1.4x@sha256:1fc45410c30148233f2abe15b14229ca8d69627bf40fae4751a5195d34aa21b6
+    image: phpipam/phpipam-cron:1.4x@sha256:3c45ee8e6571e81bcb6316f6ab5c6fabe7227561a163c11a499a8486a27dcfaa
     environment:
       - TZ=Europe/London
       - IPAM_DATABASE_HOST=phpipam-mariadb
