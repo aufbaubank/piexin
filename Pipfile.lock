@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "31340ac204a86d1e9990a5ee540fc48107154118da7e642947839720b3e9b0c8"
+            "sha256": "c962967f21271e7ac83c422460bcfd5987d4ae654555e7d210a6fbe80ac7b360"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -271,11 +271,11 @@
         },
         "docker-compose": {
             "hashes": [
-                "sha256:4675242b1bc3fc5b3a8ae367d34012e250ba413fd2815e365541104086488971",
-                "sha256:bc5430f5ba1eaa951382d077938551667c7570ba710c06bac3672a40a60f60e2"
+                "sha256:401838bb36e8b1e255fdf22fe6991508193c09d09f57dc923b66d3f2fa663133",
+                "sha256:e97a60ab2f7793641777809c7c8ae1433329ae5f2204b8628b524214729620c7"
             ],
             "index": "pypi",
-            "version": "==1.27.2"
+            "version": "==1.27.3"
         },
         "dockerpty": {
             "hashes": [
