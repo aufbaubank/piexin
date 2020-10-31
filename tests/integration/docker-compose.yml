@@ -8,7 +8,7 @@ services:
       - 443:443
 
   phpipam-web:
-    image: phpipam/phpipam-www:1.4x@sha256:34c8c9cbe66f31727d24a1d53bc1169601ecdbe708c80dc4e03a62b4c1425a8d
+    image: phpipam/phpipam-www:1.4x@sha256:e12e0f7747175025384a26c2e7b56103d18b917bf11f0aff802efd04986b4a1f
     environment:
       TZ: Europe/Berlin
       IPAM_DATABASE_HOST: phpipam-mariadb
