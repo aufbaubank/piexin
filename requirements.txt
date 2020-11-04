@@ -1,4 +1,4 @@
-ansible==2.10.1
+ansible==2.10.2
 docker-compose==1.27.4
 pytest-console-scripts==1.0.0
 pytest-cov==2.10.1
