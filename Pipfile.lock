@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "9ac2daecadc0bcfae2e12d840ab13da6283eee8c1fad40f4e1966ef3cf5fa44b"
+            "sha256": "024173a47030a0b02ed9fdb86fafe51192c7359019e5d6b2b0a1bffa4885001b"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -58,17 +58,17 @@
     "develop": {
         "ansible": {
             "hashes": [
-                "sha256:75708c67e2ac926cea42856af72cbc9494bf8008197652f9609089f7b4c2515a"
+                "sha256:396ff188c7c1a2bb2e4be78d8a2f87e729c32c34946afbee04c09b68fbd8c2d0"
             ],
             "index": "pypi",
-            "version": "==2.10.1"
+            "version": "==2.10.2"
         },
         "ansible-base": {
             "hashes": [
-                "sha256:c79fe108e13b286bad21734208624aaef9dabb49bb4211b13bc96d88829e22ab"
+                "sha256:35a208726b10fecbcf00c263ae4572b48f505b5796fb77a85c3e9c1036ea5e4f"
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
-            "version": "==2.10.2"
+            "version": "==2.10.3"
         },
         "appdirs": {
             "hashes": [
@@ -322,11 +322,11 @@
         },
         "importlib-resources": {
             "hashes": [
-                "sha256:a9fe213ab6452708ec1b3f4ec6f2881b8ab3645cb4e5efb7fea2bbf05a91db3b",
-                "sha256:e2860cf0c4bc999947228d18be154fa3779c5dde0b882bd2d7b3f4d25e698bd6"
+                "sha256:7b51f0106c8ec564b1bef3d9c588bc694ce2b92125bbb6278f4f2f5b54ec3592",
+                "sha256:a3d34a8464ce1d5d7c92b0ea4e921e696d86f2aa212e684451cb1482c8d84ed5"
             ],
             "markers": "python_version < '3.7'",
-            "version": "==3.2.1"
+            "version": "==3.3.0"
         },
         "iniconfig": {
             "hashes": [
@@ -614,10 +614,11 @@
         },
         "toml": {
             "hashes": [
-                "sha256:926b612be1e5ce0634a2ca03470f95169cf16f939018233a670519cb4ac58b0f",
-                "sha256:bda89d5935c2eac546d648028b9901107a595863cb36bae0c73ac804a9b4ce88"
+                "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b",
+                "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
             ],
-            "version": "==0.10.1"
+            "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "version": "==0.10.2"
         },
         "tox": {
             "hashes": [
