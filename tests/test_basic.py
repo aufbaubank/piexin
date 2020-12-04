@@ -7,12 +7,16 @@ import piexin
 class TestCommand:
 
     inventory_file_content = '[piexin_all]\n' \
-                             'host1.localdomain.local ansible_host=10.0.0.1\n' \
-                             'host2.localdomain.local ansible_host=10.0.0.2\n' \
+                             'host1.localdomain.local ansible_host=10.0.0.1 ' \
+                               'piexin_description="this is host host1.localdomain.local"\n' \
+                             'host2.localdomain.local ansible_host=10.0.0.2 ' \
+                               'piexin_description="this is host host2.localdomain.local"\n' \
                              'gateway.localdomain.local ansible_host=10.0.0.6\n' \
                              'host3.localdomain.local ansible_host=10.0.1.1\n' \
-                             'host4.localdomain.local ansible_host=10.0.1.2\n' \
-                             'windows.localdomain.local ansible_host=10.0.1.3\n' \
+                             'host4.localdomain.local ansible_host=10.0.1.2 ' \
+                               'piexin_description="characters \\"not allowed\\""\n' \
+                             'windows.localdomain.local ansible_host=10.0.1.3 ' \
+                               'piexin_description="a host based on windows os"\n' \
                              'lonely.localdomain.local ansible_host=10.0.2.1\n' \
                              'host5.localdomain.local ansible_host=172.16.0.1\n' \
                              'host6.localdomain.local ansible_host=172.16.0.2\n' \
