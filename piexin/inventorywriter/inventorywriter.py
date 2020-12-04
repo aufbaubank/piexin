@@ -54,11 +54,14 @@ class Inventorywriter:
                 'ansible_host': address.ip
             }
 
+            if isinstance(address.description, str):
+                attributes['piexin_description'] = '"' + address.description.replace('"', '\\"') + '"'
+
             attlist = []
             for key, value in attributes.items():
                 attlist.append('{0}={1}'.format(key, value))
 
-            lines.append('{0} {1}\n'.format(address.hostname, ''.join(attlist)))
+            lines.append('{0} {1}\n'.format(address.hostname, ' '.join(attlist)))
 
         lines.append('\n')
 

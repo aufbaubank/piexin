@@ -13,6 +13,10 @@ class Address:
         self.hostname = host_json["hostname"]
         self.ansible_groups = []
 
+        self.description = None
+        if 'description' in host_json:
+            self.description = host_json['description']
+
         # check for multiple field spelling
         for key in ['custom_ansible_groups', 'custom_ansible-groups']:
             if key in host_json:
