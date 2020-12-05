@@ -54,8 +54,11 @@ class Inventorywriter:
                 'ansible_host': address.ip
             }
 
-            if isinstance(address.description, str):
-                attributes['piexin_description'] = '"' + address.description.replace('"', '\\"') + '"'
+            for key, value in address.raw_json.items():
+                if not isinstance(value, str):
+                    continue
+                attributes['piexin_' + key] = \
+                    '"' + Inventorywriter.escape_bad_characters(value) + '"'
 
             attlist = []
             for key, value in attributes.items():
@@ -116,4 +119,14 @@ class Inventorywriter:
 
         return lines
 
+    @staticmethod
+    def escape_bad_characters(string_to_be_escaped):
 
+        return_string = string_to_be_escaped
+
+        for char in ['\\', '"']:
+            string_elements = return_string.split(char)
+            insert_sequence = '\\' + char
+            return_string = insert_sequence.join(string_elements)
+
+        return return_string

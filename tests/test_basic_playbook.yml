@@ -1,0 +1,50 @@
+- hosts: piexin_all
+  gather_facts: false
+  tasks:
+    - name: variables
+      assert:
+        that:
+          - piexin_PTR is defined
+          - piexin_PTRignore is defined
+          - piexin_excludePing is defined
+          - piexin_hostname is defined
+          - piexin_id is defined
+          - piexin_ip is defined
+          - piexin_subnet is defined
+          - piexin_subnetId is defined
+          - piexin_subnet_mask is defined
+          - piexin_tag is defined
+
+- hosts: piexin_subnet_10_0_0_0, !gateway.localdomain.local
+  gather_facts: false
+  tasks:
+    - name: variables
+      assert:
+        that:
+          - piexin_description is defined
+          - piexin_description is string
+          - piexin_tag is defined
+          - piexin_tag is number
+          - piexin_vlan_id is defined
+          - piexin_vlan_id is number
+          - piexin_vlan_name is defined
+          - piexin_vlan_name is string
+
+- hosts: host4.localdomain.local
+  gather_facts: false
+  tasks:
+    - name: check host 4
+      assert:
+        that:
+          - ansible_host == "10.0.1.2"
+          - piexin_id == 14
+          - piexin_subnetId == 9
+          - piexin_ip == "10.0.1.2"
+          - piexin_description == 'characters "not allowed"'
+          - piexin_hostname == "host4.localdomain.local"
+          - piexin_tag == 2
+          - piexin_excludePing == 0
+          - piexin_PTRignore == 0
+          - piexin_PTR == 0
+          - piexin_editDate == "2020-12-04 15:17:25"
+          - piexin_custom_ansible_groups == "web1"
