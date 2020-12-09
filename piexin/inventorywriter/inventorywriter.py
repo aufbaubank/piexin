@@ -1,7 +1,9 @@
 import os
-
+import re
 
 class Inventorywriter:
+
+    regex_replace_to_space = re.compile(r"(\r)*\n")
 
     def __init__(self, src):
 
@@ -128,5 +130,10 @@ class Inventorywriter:
             string_elements = return_string.split(char)
             insert_sequence = '\\' + char
             return_string = insert_sequence.join(string_elements)
+
+        return_string = re.sub(
+            Inventorywriter.regex_replace_to_space,
+            ' ',
+            return_string)
 
         return return_string
