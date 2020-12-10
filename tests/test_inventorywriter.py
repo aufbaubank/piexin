@@ -17,3 +17,13 @@ class TestInventoryWriter:
 
         assert bad_string != cleaned
         assert cleaned == 'asd \\" \\" \\\\'
+
+    def test_newlines(self):
+
+        string = 'we\r\nhave\r\nmultiple line notes\r\n'
+
+        cleaned = Inventorywriter.escape_bad_characters(string)
+
+        assert '\r' not in cleaned
+        assert '\n' not in cleaned
+        assert '  ' not in cleaned
