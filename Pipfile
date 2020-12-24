@@ -11,7 +11,7 @@ pytest-console-scripts = "==1.1.0"
 tox = "==3.20.1"
 ansible = "==2.10.4"
 docker-compose = "==1.27.4"
-twine = "==3.2.0"
+twine = "==3.3.0"
 
 [packages]
 requests = "==2.25.1"
