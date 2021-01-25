@@ -4,7 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-pytest = "==6.2.1"
+pytest = "==6.2.2"
 pytest-cov = "==2.11.1"
 requests-mock = "==1.8.0"
 pytest-console-scripts = "==1.1.0"
