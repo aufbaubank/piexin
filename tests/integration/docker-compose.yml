@@ -2,7 +2,7 @@ version: '3'
 
 services:
   ingress:
-    image: nginx:1.19.6-alpine@sha256:c2ce58e024275728b00a554ac25628af25c54782865b3487b11c21cafb7fabda
+    image: nginx:1.25.4-alpine@sha256:31bad00311cb5eeb8a6648beadcf67277a175da89989f14727420a80e2e76742
     ports:
       - 80:80
       - 443:443
